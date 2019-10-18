@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Product from '../Product/Product';
 
 export default class Dashboard extends React.Component {
     render() {
         var { mappedProducts } = inventory.map(product => {
             return (
-                <div key={product.name}>
+                <div key={inventory.product}>
                     <div className="products">
 
                     </div>
@@ -14,7 +14,6 @@ export default class Dashboard extends React.Component {
         })
         return(
             <div className="grid">{mappedProducts}</div>
-            <Product />
-            )
+        )
     }
 };

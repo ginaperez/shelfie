@@ -10,15 +10,16 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      inventory: {
-        product1: ("name", "price", "image"),
-        product2: ("name", "price", "image")
-      }
-    };
+      inventory: [
+        {name: "", price: 0, image: ""},
+        {name: "", price: 0, image: ""},
+        {name: "", price: 0, image: ""}
+      ]};
+      this.getInventory = this.getInventory.bind(this);
   };
 
   getInventory() {
-    axios.get("http://localhost: 4000/api/inventory").then(response => {
+    axios.get("http://localhost:4000/api/inventory").then(response => {
       this.setState({
         inventory: response.data
       });
@@ -30,7 +31,7 @@ export default class App extends Component {
   return (
     <div className="App">
       <Dashboard />
-      <Form postProduct={this.postProduct}/>
+      <Form getInventory={this.getInventory}/>
       <Header />
       <Product />
     </div>

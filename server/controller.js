@@ -1,12 +1,20 @@
-const productData = require("../src/App");
-
 module.exports = {
     getInventory: (req, res, next) => {
-        console.log('It worked!!!! Woohoo!!!!');
-        res.status(200).send(productData)
+        const dbInstance = req.app.get('db');
+        dbInstance.get_inventory()
+        .then(() => res.sendStatus(200))
+        .catch(err => {
+            res.status(500).send({errorMessage: "Oops! Something went wrong"});
+            console.log(err)
+        });
     },
     postProduct: (req, res, next) => {
-        console.log('name', 'price', 'imageURL');
-        res.status(200).send(productData)
+        const dbInstance = req.app.post('db');
+        dbInstance.create_product()
+        .then(() => res.sendStatus(200))
+        .catch(err => {
+            res.status(500).send({errorMessage: "Oops! Something went wrong"});
+            console.log(err)
+        });
     }
 };
