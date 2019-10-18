@@ -12,7 +12,8 @@ const {
 } = require('../server/controller');
 
 app.get("/api/inventory", getInventory);
-app.post("/api/product", postProduct)
+app.post("/api/product", postProduct);
+app.delete("api/product");
 
 
 const port = 4000;

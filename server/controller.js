@@ -16,5 +16,8 @@ module.exports = {
             res.status(500).send({errorMessage: "Oops! Something went wrong"});
             console.log(err)
         });
+    },
+    deleteProduct: (req, res, next) => {
+        
     }
 };
